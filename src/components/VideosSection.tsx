@@ -5,16 +5,8 @@ interface Video {
 
 const videos: Video[] = [
   {
-    id: "dQw4w9WgXcQ",
-    title: "KAZIMI - Latest Music Video"
-  },
-  {
-    id: "dQw4w9WgXcQ",
-    title: "KAZIMI - Live Performance"
-  },
-  {
-    id: "dQw4w9WgXcQ",
-    title: "KAZIMI - Behind the Scenes"
+    id: "m_HqnOCHKkE",
+    title: "Storming Jupiter - LIVE"
   }
 ];
 

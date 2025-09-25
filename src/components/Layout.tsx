@@ -1,5 +1,6 @@
 import { type ReactNode, useState, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
+import SocialLinks from './SocialLinks';
 // The unused 'HTMLMotionProps' import has been removed from here
 
 const navLinks = [
@@ -39,22 +40,29 @@ export default function Layout({ children }: { children: ReactNode }) {
           `}
         >
           <nav className="container mx-auto px-4">
-            <div className="flex items-center justify-between h-16">
-              {/* Logo */}
-              <a href="#home" className="group">
-                <motion.div
-                  className="text-2xl font-bold text-neonPink group-hover:text-neonBlue transition-colors uppercase tracking-wider"
-                  style={{ textShadow: '0 0 10px currentColor, 0 0 20px currentColor' }}
-                  initial={{ opacity: 0.8 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 2, repeat: Infinity, repeatType: 'reverse' }}
-                >
-                  Kazimi
-                </motion.div>
-              </a>
+            <div className="grid grid-cols-3 items-center h-16">
+              {/* Left: Logo */}
+              <div className="flex items-center">
+                <a href="#home" className="group">
+                  <motion.div
+                    className="text-2xl font-bold text-neonPink group-hover:text-neonBlue transition-colors uppercase tracking-wider"
+                    style={{ textShadow: '0 0 10px currentColor, 0 0 20px currentColor' }}
+                    initial={{ opacity: 0.8 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 2, repeat: Infinity, repeatType: 'reverse' }}
+                  >
+                    Kazimi
+                  </motion.div>
+                </a>
+              </div>
 
-              {/* Desktop Nav Links */}
-              <div className="hidden md:flex space-x-8">
+              {/* Center: Social Icons */}
+              <div className="flex justify-center">
+                <SocialLinks linkClassName="text-neonPink hover:text-neonBlue transition-colors" glow />
+              </div>
+
+              {/* Right: Nav Links */}
+              <div className="hidden md:flex justify-end space-x-8">
                 {navLinks.map((link) => (
                   <a key={link.path} href={link.path} className="group">
                     <motion.div
@@ -66,13 +74,6 @@ export default function Layout({ children }: { children: ReactNode }) {
                   </a>
                 ))}
               </div>
-
-              {/* Mobile Menu Button */}
-              <button className="md:hidden text-neonPink hover:text-neonBlue transition-colors">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-              </button>
             </div>
           </nav>
         </header>
