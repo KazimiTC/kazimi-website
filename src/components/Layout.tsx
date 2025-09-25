@@ -1,12 +1,10 @@
 import { type ReactNode, useState, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
 // The unused 'HTMLMotionProps' import has been removed from here
-import PlayerBar from './PlayerBar';
-import { AudioPlayerProvider } from '../contexts/AudioPlayerContext';
 
 const navLinks = [
+  { name: 'About', path: '#about' },
   { name: 'Tour', path: '#tour' },
-  { name: 'Merch', path: '#merch' },
   { name: 'Videos', path: '#videos' },
   { name: 'Contact', path: '#contact' },
 ];
@@ -31,8 +29,7 @@ export default function Layout({ children }: { children: ReactNode }) {
   }, [handleScroll]);
 
   return (
-    <AudioPlayerProvider>
-      <div className="relative">
+    <div className="relative">
         {/* HEADER: Fixed at the top */}
         <header
           className={`
@@ -80,14 +77,10 @@ export default function Layout({ children }: { children: ReactNode }) {
           </nav>
         </header>
 
-        {/* PlayerBar */}
-        <PlayerBar />
-
         {/* MAIN CONTENT AREA */}
         <main className="bg-black text-white">
           {children}
         </main>
       </div>
-    </AudioPlayerProvider>
   );
 }
