@@ -1,4 +1,4 @@
-import { FaSpotify, FaYoutube, FaInstagram, FaTiktok, FaFacebookF } from 'react-icons/fa';
+import { FaSpotify, FaYoutube, FaInstagram, FaTiktok } from 'react-icons/fa';
 
 interface SocialLinksProps {
   className?: string;
@@ -11,11 +11,26 @@ export default function SocialLinks({ className = '', linkClassName = '', glow =
   void glow;
 
   const links = [
-    { name: 'Spotify', icon: FaSpotify, url: 'https://open.spotify.com/artist/YOUR_ID' },
-    { name: 'YouTube', icon: FaYoutube, url: 'https://youtube.com/@YOUR_HANDLE' },
-    { name: 'Instagram', icon: FaInstagram, url: 'https://instagram.com/YOUR_HANDLE' },
-    { name: 'TikTok', icon: FaTiktok, url: 'https://tiktok.com/@YOUR_HANDLE' },
-    { name: 'Facebook', icon: FaFacebookF, url: 'https://facebook.com/YOUR_HANDLE' },
+    { 
+      name: 'Spotify', 
+      icon: FaSpotify, 
+      url: 'https://open.spotify.com/artist/5CSHHIndRlzfQTDyRJVXGL?si=0GlQaUgfRIC9P_Ta1OyH2Q&nd=1&dlsi=34fc42f1f9db4c13' 
+    },
+    { 
+      name: 'YouTube', 
+      icon: FaYoutube, 
+      url: 'https://www.youtube.com/@wearekazimi' 
+    },
+    { 
+      name: 'Instagram', 
+      icon: FaInstagram, 
+      url: 'https://www.instagram.com/kazimi.music/#' 
+    },
+    { 
+      name: 'TikTok', 
+      icon: FaTiktok, 
+      url: 'https://www.tiktok.com/@kazimiband' 
+    },
   ];
 
   return (

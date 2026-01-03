@@ -27,7 +27,8 @@ export default function App() {
     { name: 'WATCH', href: '#watch' },
     { name: 'TOUR', href: '#tour' },
     { name: 'ABOUT', href: '#about' },
-    { name: 'CONTACT', href: '#newsletter' },
+    // Pointing to the specific ID we added below
+    { name: 'CONTACT', href: '#contact' },
   ];
 
   // DYNAMIC GLOW STYLE
@@ -40,6 +41,14 @@ export default function App() {
 
   return (
     <Layout>
+      {/* SCROLL FIX: Ensures the header doesn't cover content when jumping to sections */}
+      <style>{`
+        html {
+          scroll-padding-top: 100px;
+          scroll-behavior: smooth;
+        }
+      `}</style>
+
       {/* HEADER NAVIGATION */}
       <nav 
         className={`fixed top-0 w-full z-50 px-8 transition-all duration-500 ${
@@ -163,7 +172,13 @@ export default function App() {
         <VideosSection />
         <TourSection />
         <AboutSection />
-        <NewsletterSection />
+        
+        {/* This ID="contact" is what makes the link work. 
+           We wrap the Newsletter section so the browser knows where to scroll.
+        */}
+        <div id="contact">
+          <NewsletterSection />
+        </div>
         
         {/* DESKTOP ONLY IMAGE */}
         <DesktopBottomImage />
