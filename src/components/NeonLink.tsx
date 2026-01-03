@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
 
 interface NeonLinkProps {
   to: string;
@@ -14,14 +13,8 @@ export default function NeonLink({ to, children, className = '' }: NeonLinkProps
       className={`relative group ${className}`}
     >
       {children}
-      <motion.div
-        className="absolute -bottom-1 left-0 h-[2px] bg-neonPink group-hover:bg-neonBlue"
-        initial={{ width: "0%" }}
-        animate={{ width: "100%" }}
-        transition={{
-          duration: 0.2,
-          ease: "easeInOut"
-        }}
+      <div
+        className="absolute -bottom-1 left-0 h-[2px] bg-neonPink group-hover:bg-neonBlue transition-all duration-200 ease-in-out group-hover:w-full w-0"
         style={{
           boxShadow: "0 0 10px currentColor",
         }}
