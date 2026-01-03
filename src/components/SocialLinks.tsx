@@ -7,8 +7,12 @@ interface SocialLinksProps {
 }
 
 export default function SocialLinks({ className = '', linkClassName = '', glow = false }: SocialLinksProps) {
-  // We use this 'void' line to tell the compiler: "Yes, we know 'glow' exists, ignore it if we don't use it logic-wise."
-  void glow;
+  
+  // RESTORED LOGIC: If 'glow' is true, apply the neon shadow style
+  const glowStyle = glow ? { 
+    textShadow: '0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor',
+    filter: 'drop-shadow(0 0 5px currentColor)' // Adds extra pop for icons specifically
+  } : undefined;
 
   const links = [
     { 
@@ -43,6 +47,7 @@ export default function SocialLinks({ className = '', linkClassName = '', glow =
           rel="noopener noreferrer"
           className={`transition-transform duration-300 hover:scale-110 ${linkClassName}`}
           aria-label={link.name}
+          style={glowStyle} // This applies the glow!
         >
           <link.icon size={24} />
         </a>
