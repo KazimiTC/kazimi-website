@@ -27,7 +27,6 @@ export default function App() {
     { name: 'WATCH', href: '#watch' },
     { name: 'TOUR', href: '#tour' },
     { name: 'ABOUT', href: '#about' },
-    // Pointing to the specific ID we added below
     { name: 'CONTACT', href: '#contact' },
   ];
 
@@ -41,7 +40,7 @@ export default function App() {
 
   return (
     <Layout>
-      {/* SCROLL FIX: Ensures the header doesn't cover content when jumping to sections */}
+      {/* SCROLL FIX */}
       <style>{`
         html {
           scroll-padding-top: 100px;
@@ -152,8 +151,11 @@ export default function App() {
           className="absolute inset-0 w-full h-full object-cover object-top hidden md:block animate-[fadeIn_2.5s_ease-out_forwards]"
         />
         
-        {/* Dark overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/50 to-black z-10" />
+        {/* UPDATED DARK OVERLAY: 
+          Changed from 'black/90' to 'black/40' (Top) and 'black/10' (Middle) 
+          to make the image much brighter.
+        */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/10 to-black z-10" />
         
         {/* Content Container */}
         <div className="absolute inset-0 flex flex-col items-center justify-center z-20">
@@ -173,14 +175,10 @@ export default function App() {
         <TourSection />
         <AboutSection />
         
-        {/* This ID="contact" is what makes the link work. 
-           We wrap the Newsletter section so the browser knows where to scroll.
-        */}
         <div id="contact">
           <NewsletterSection />
         </div>
         
-        {/* DESKTOP ONLY IMAGE */}
         <DesktopBottomImage />
         
         <Footer />
