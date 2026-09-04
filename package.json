@@ -12,6 +12,7 @@
   "dependencies": {
     "firebase": "^11.10.0",
     "framer-motion": "^10.16.4",
+    "nodemailer": "^10.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.5.0",
@@ -22,6 +23,7 @@
     "@types/react": "^18.2.0",
     "@types/react-axe": "^3.5.0",
     "@types/react-dom": "^18.2.0",
+    "@vercel/node": "^12.0.0",
     "@vitejs/plugin-react": "^4.5.2",
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.38",
