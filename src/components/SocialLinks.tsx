@@ -1,4 +1,4 @@
-import { FaSpotify, FaYoutube, FaInstagram, FaTiktok } from 'react-icons/fa';
+import { FaSpotify, FaBandcamp, FaYoutube, FaInstagram, FaTiktok } from 'react-icons/fa';
 
 interface SocialLinksProps {
   className?: string;
@@ -20,8 +20,13 @@ export default function SocialLinks({ className = '', linkClassName = '', glow =
       icon: FaSpotify, 
       url: 'https://open.spotify.com/artist/5CSHHIndRlzfQTDyRJVXGL?si=0GlQaUgfRIC9P_Ta1OyH2Q&nd=1&dlsi=34fc42f1f9db4c13' 
     },
-    { 
-      name: 'YouTube', 
+    {
+      name: 'Bandcamp',
+      icon: FaBandcamp,
+      url: 'https://wearekazimi.bandcamp.com'
+    },
+    {
+      name: 'YouTube',
       icon: FaYoutube, 
       url: 'https://www.youtube.com/@wearekazimi' 
     },

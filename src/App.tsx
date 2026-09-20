@@ -66,7 +66,7 @@ export default function App() {
           </a>
 
           {/* Center: Social Links */}
-          <div className="hidden md:flex justify-center mt-1">
+          <div className="hidden xl:flex justify-center mt-1">
             <SocialLinks 
               glow={true} 
               linkClassName={`transition-all duration-300 hover:scale-110 ${pinkClass} ${blueHoverClass}`}
@@ -75,7 +75,7 @@ export default function App() {
           </div>
 
           {/* Right: Navigation Links */}
-          <div className="hidden md:flex justify-end space-x-10 mt-1">
+          <div className="hidden xl:flex justify-end space-x-10 mt-1">
             {navLinks.map((link) => (
               <a 
                 key={link.name} 
@@ -89,7 +89,7 @@ export default function App() {
           </div>
 
           {/* Mobile Toggle */}
-          <div className="md:hidden flex justify-end">
+          <div className="xl:hidden flex justify-end">
             <button 
               className={`p-2 transition-colors duration-300 focus:outline-none ${pinkClass} ${blueHoverClass}`}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -113,7 +113,7 @@ export default function App() {
           <motion.div 
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
             // @ts-ignore
-            className="fixed inset-0 z-40 bg-black flex flex-col items-center justify-center space-y-12 md:hidden"
+            className="fixed inset-0 z-40 bg-black flex flex-col items-center justify-center space-y-12 xl:hidden"
           >
             {navLinks.map((link) => (
               <a 
