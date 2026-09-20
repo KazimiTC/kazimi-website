@@ -13,7 +13,7 @@ const videos: Video[] = [
 export default function VideosSection() {
   return (
     /* Changed id to "watch" so the nav link #watch functions correctly */
-    <section id="watch" className="min-h-screen flex items-center scroll-snap-align-start bg-black py-20">
+    <section id="watch" className="md:min-h-screen md:flex md:items-center scroll-snap-align-start bg-black py-20">
       <div className="container mx-auto px-4">
         {/* Changed heading text to "Watch" */}
         <h2 className="text-4xl font-bold text-center mb-12 text-white">Watch</h2>

@@ -48,7 +48,7 @@ export default function TourSection() {
 
   if (status === 'loading') {
     return (
-      <section id="tour" className="min-h-screen flex items-center scroll-snap-align-start bg-black py-20">
+      <section id="tour" className="md:min-h-screen md:flex md:items-center scroll-snap-align-start bg-black py-20">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl lg:text-6xl font-space-grotesk font-extrabold text-center mb-12">
             Upcoming Shows
@@ -70,7 +70,7 @@ export default function TourSection() {
   }
 
   return (
-    <section id="tour" className="min-h-screen flex items-center scroll-snap-align-start bg-black py-20">
+    <section id="tour" className="md:min-h-screen md:flex md:items-center scroll-snap-align-start bg-black py-20">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl lg:text-6xl font-space-grotesk font-extrabold text-center mb-12">
           Upcoming Shows
