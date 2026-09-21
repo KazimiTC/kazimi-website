@@ -7,6 +7,10 @@ const videos: Video[] = [
   {
     id: "m_HqnOCHKkE",
     title: "Storming Jupiter - LIVE"
+  },
+  {
+    id: "OYUUBNWMhiA",
+    title: "Kazimi - Mauve Coconut (Live in session)"
   }
 ];
 
