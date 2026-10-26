@@ -1,4 +1,4 @@
-const LISTEN_URL = 'https://open.spotify.com/track/7EiG9eUmI89di3vz7VhRI6';
+const LISTEN_URL = 'https://kazimi-app.vercel.app/l/errant-nodes-spotify?src=website';
 
 export default function ListenNowSection() {
   const neonGlowStyle = {
@@ -11,7 +11,7 @@ export default function ListenNowSection() {
         className="text-3xl md:text-5xl font-bold tracking-widest text-[#ff2ec7] mb-8 text-center uppercase"
         style={neonGlowStyle}
       >
-        Errant Nodes - out 8th October
+        Errant Nodes - out now
       </h2>
 
       <a
