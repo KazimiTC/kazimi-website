@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Layout from './components/Layout';
-import PreSaveSection from './components/PreSaveSection';
+import ListenNowSection from './components/ListenNowSection';
 import TourSection from './components/TourSection';
 import VideosSection from './components/VideosSection';
 import NewsletterSection from './components/NewsletterSection';
@@ -172,7 +172,7 @@ export default function App() {
 
       {/* PAGE SECTIONS */}
       <div className="relative z-10">
-        <PreSaveSection />
+        <ListenNowSection />
         <VideosSection />
         <TourSection />
         <AboutSection />

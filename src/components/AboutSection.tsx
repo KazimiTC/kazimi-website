@@ -23,7 +23,7 @@ export default function AboutSection(): ReactElement {
         </p>
 
         <p className="text-white/90">
-          The first wave of releases arrives in late 2025, each single reflecting a different facet of Kazimi’s ethos. Storming Jupiter, Mauve Coconut and Errant Nodes map the terrain of Kazimi’s sound: punchy, unpredictable, and joyfully danceable. With live videos to accompany the singles and their debut headline show on the horizon, Kazimi are only just beginning.
+          Kazimi’s first three singles, Storming Jupiter, Mauve Coconut and Errant Nodes, are out now, each one reflecting a different facet of the duo’s ethos. Together they map the terrain of Kazimi’s sound: punchy, unpredictable and joyfully danceable. With live videos alongside the singles and a debut EP arriving in early 2027, Kazimi are only just beginning.
         </p>
       </div>
     </section>
