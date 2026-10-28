@@ -1,5 +1,24 @@
 const LISTEN_URL = 'https://kazimi-app.vercel.app/l/errant-nodes-spotify?src=website';
 
+// Add new press quotes here; they render in this order.
+const PRESS_QUOTES = [
+  {
+    quote: 'Dynamic, technically accomplished and irresistibly energetic.',
+    outlet: 'Rotate Magazine',
+    url: 'https://rotatemagazine.com/kazimi-drops-new-single-errant-nodes/',
+  },
+  {
+    quote: 'Complexity does not have to come at the expense of impact.',
+    outlet: 'We Speak Media',
+    url: 'https://wespeakmedia2.com/kazimi-shines-in-new-single-errant-nodes/',
+  },
+  {
+    quote: 'Knows the exact moment to step on the gas.',
+    outlet: 'Distopic',
+    url: 'https://www.distopic.it/kazimi/',
+  },
+];
+
 export default function ListenNowSection() {
   const neonGlowStyle = {
     textShadow: '0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor'
@@ -8,11 +27,28 @@ export default function ListenNowSection() {
   return (
     <section className="w-full py-20 bg-black flex flex-col items-center justify-center px-4">
       <h2
-        className="text-3xl md:text-5xl font-bold tracking-widest text-[#ff2ec7] mb-8 text-center uppercase"
+        className="text-3xl md:text-5xl font-bold tracking-widest text-[#ff2ec7] mb-6 text-center uppercase"
         style={neonGlowStyle}
       >
         Errant Nodes - out now
       </h2>
+
+      <ul className="mb-8 max-w-xl space-y-2 text-center">
+        {PRESS_QUOTES.map((item) => (
+          <li key={item.url} className="text-sm text-white/70">
+            “{item.quote}”{' '}
+            <a
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Read the ${item.outlet} article`}
+              className="whitespace-nowrap text-xs text-white/60 underline underline-offset-2 transition-colors duration-300 hover:text-[#00f3ff]"
+            >
+              {item.outlet}
+            </a>
+          </li>
+        ))}
+      </ul>
 
       <a
         href={LISTEN_URL}
