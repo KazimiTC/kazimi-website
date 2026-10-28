@@ -1,18 +1,13 @@
 import { useState, useEffect } from 'react';
+import { MANUAL_SHOWS, mergeShows, listUpcoming } from '../data/manualShows';
+import type { Show } from '../data/manualShows';
 
 const SHOWS_API_URL = 'https://kazimi-app.vercel.app/api/public-shows';
-
-interface Show {
-  venue: string;
-  city: string;
-  date: string; // ISO date string
-  ticketUrl: string | null;
-}
 
 type FetchStatus = 'loading' | 'success' | 'error';
 
 export default function TourSection() {
-  const [shows, setShows] = useState<Show[]>([]);
+  const [feedShows, setFeedShows] = useState<Show[]>([]);
   const [status, setStatus] = useState<FetchStatus>('loading');
 
   useEffect(() => {
@@ -25,17 +20,14 @@ export default function TourSection() {
       })
       .then((data: Show[]) => {
         if (cancelled) return;
-        const now = new Date();
-        const upcoming = data
-          .filter((show) => new Date(show.date) > now)
-          .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
-        setShows(upcoming);
+        if (!Array.isArray(data)) throw new Error('Shows API did not return a list');
+        setFeedShows(data);
         setStatus('success');
       })
       .catch((err) => {
         console.error('Failed to load shows from', SHOWS_API_URL, err);
         if (cancelled) return;
-        setShows([]);
+        setFeedShows([]);
         setStatus('error');
       });
 
@@ -44,7 +36,7 @@ export default function TourSection() {
     };
   }, []);
 
-  const nextShow = shows[0];
+  const shows = listUpcoming(mergeShows(feedShows, MANUAL_SHOWS), Date.now());
 
   if (status === 'loading') {
     return (
@@ -59,7 +51,7 @@ export default function TourSection() {
     );
   }
 
-  if (!nextShow) {
+  if (shows.length === 0) {
     return (
       <section id="tour" className="py-20 bg-zinc-900">
         <div className="container mx-auto px-4">
@@ -90,7 +82,8 @@ export default function TourSection() {
                     {showDate.toLocaleDateString('en-US', {
                       weekday: 'short',
                       month: 'short',
-                      day: 'numeric'
+                      day: 'numeric',
+                      timeZone: 'Europe/London'
                     })}
                   </div>
                   <div className="text-xl font-bold mt-1">{show.city}</div>
