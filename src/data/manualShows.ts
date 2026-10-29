@@ -3,6 +3,10 @@ export interface Show {
   city: string;
   date: string; // ISO date string
   ticketUrl: string | null;
+  // Newer feed fields; absent on the old shape, null when unknown.
+  title?: string | null;
+  doors?: string | null;
+  time?: string | null;
 }
 
 // Gigs not yet in the app feed. Delete an entry once the feed has it.
@@ -14,6 +18,17 @@ export const MANUAL_SHOWS: Show[] = [
     ticketUrl: null,
   },
 ];
+
+// Feed times are UK clock strings. Anything else, or 00:00, counts as unknown.
+const clock = (value: string | null | undefined): string | null =>
+  typeof value === 'string' && /^([01]\d|2[0-3]):[0-5]\d$/.test(value) && value !== '00:00' ? value : null;
+
+// 'Doors 19:00 · Music 20:30', or one of them, or '' when neither is known.
+export function formatTimes(show: Pick<Show, 'doors' | 'time'>): string {
+  const doors = clock(show.doors);
+  const music = clock(show.time);
+  return [doors && `Doors ${doors}`, music && `Music ${music}`].filter(Boolean).join(' · ');
+}
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 

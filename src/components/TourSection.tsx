@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { MANUAL_SHOWS, mergeShows, listUpcoming } from '../data/manualShows';
+import { MANUAL_SHOWS, mergeShows, listUpcoming, formatTimes } from '../data/manualShows';
 import type { Show } from '../data/manualShows';
 
 const SHOWS_API_URL = 'https://kazimi-app.vercel.app/api/public-shows';
@@ -72,6 +72,9 @@ export default function TourSection() {
         <div className="grid md:grid-cols-2 gap-6">
           {shows.map((show) => {
             const showDate = new Date(show.date);
+            const title = typeof show.title === 'string' ? show.title.trim() : '';
+            const showVenue = show.venue.trim().toLowerCase() !== title.toLowerCase();
+            const times = formatTimes(show);
             return (
               <div
                 key={`${show.date}-${show.venue}`}
@@ -87,7 +90,9 @@ export default function TourSection() {
                     })}
                   </div>
                   <div className="text-xl font-bold mt-1">{show.city}</div>
-                  <div className="text-white/80">{show.venue}</div>
+                  {title && <div className="text-lg font-bold mt-1">{title}</div>}
+                  {showVenue && <div className="text-white/80">{show.venue}</div>}
+                  {times && <div className="text-sm text-white/60 mt-1">{times}</div>}
                 </div>
                 {show.ticketUrl ? (
                   <a
