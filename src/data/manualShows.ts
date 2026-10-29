@@ -10,14 +10,7 @@ export interface Show {
 }
 
 // Gigs not yet in the app feed. Delete an entry once the feed has it.
-export const MANUAL_SHOWS: Show[] = [
-  {
-    venue: 'Bold As Brass Winter Warmer — Hyde Park Book Club',
-    city: 'Leeds',
-    date: '2027-01-08T00:00:00.000Z',
-    ticketUrl: null,
-  },
-];
+export const MANUAL_SHOWS: Show[] = [];
 
 // Feed times are UK clock strings. Anything else, or 00:00, counts as unknown.
 const clock = (value: string | null | undefined): string | null =>
